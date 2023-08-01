@@ -1,0 +1,243 @@
+:root{
+    --blanco:#ffffff;
+    --oscuro:#212121;
+    --primario: #FFc107;
+    --secundario: #0097A7;
+    --gris: #757575;
+
+}  /* Establecer variables a usar en todo el código, desde colores hasta tamaño de fuente */
+/* Global */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-snap-type: y mandatory;
+}
+/* Scroll-snap */
+.servicio, 
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* Hack para Box Model */
+}
+body {
+    font-size: 16px; /* 1rem= 10px */
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco) 100%);
+}
+.contenedor {
+    max-width: 100rem;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+.boton:hover {
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    } /* Media Queries para establecer condiciones de acuerdo a la resolcuión del equipo */
+}
+.sombra {
+    -webkit-box-shadow: 0px 5px 17px 0px rgba(122,122,122,1);
+    -moz-box-shadow: 0px 5px 17px 0px rgba(122,122,122,1);
+    box-shadow: 0px 5px 17px 0px rgba(122,122,122,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+/* Tipografia */
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+/* Titulos */
+.titulo span {
+    font-size: 2rem;  
+}
+/*Utilidades*/
+.w-100 {
+    width: 100%;
+}
+@media (min-width:768px) {
+    .w-100{
+        width: auto;
+    } 
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha {
+    justify-content:flex-end;
+}
+/* Navegación principal */
+.nav-bg {
+    background-color: var(--secundario);
+
+}
+.navegacion-principal {
+    background-color: var(--secundario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width:768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+/* Hero */
+.hero {
+    background-image: url(../hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0,0,0,0.75); /**sintaxis anterior**/
+    background-color: rgb( 0 0 0 / 70%); /**sintaxis nueva**/
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+/* Servicios */
+@media (min-width:768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: 1fr, 1fr, 1fr;
+        grid-template-columns: repeat(3, 1fr); /*esto es lo mismo que la columna anterior*/ 
+        column-gap: 2rem;
+    }
+}
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: bold;
+
+}
+.servicio p {
+    line-height: 2;
+    text-align: center;
+
+}
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*Contacto*/
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100%);   /** "min" toma dos valores, y considera el más pequeño**/
+    margin: 0 auto; 
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+.formulario fieldset {
+    border: none;
+}
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem ;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+@media (min-width:768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem; /** Para filas **/
+        column-gap: 1rem; /** Para separar columnas **/
+    }
+    .campo:nth-child(3), .campo:nth-child(4) {
+        grid-column: 1/3; /** Indicar de que a que columa ira el elemento **/
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.campo textarea {
+    height: 18rem;
+}
+.input-type{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+.enviar.boton {
+    width: 100%;
+}
+/** Footer **/
+.footer {
+    text-align: center;
+}
